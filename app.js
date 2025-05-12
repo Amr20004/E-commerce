@@ -4,7 +4,7 @@ const MethodOverride = require('method-override');
 const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
-const passportLocalSratigy = require("passport-local").Strategy;
+const passportLocalStrategy = require("passport-local").Strategy;
 const connectMongo = require('connect-mongo');
 const User = require('./models/user');
 const app = express();
@@ -36,7 +36,7 @@ app.use(
 // ********* passport *************
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(new passportLocalSratigy(User.authenticate()));
+passport.use(new passportLocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
