@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/register.css">
     <title>Register</title>
 </head>
 <body>
+    <% if(error && error.length){ %>
+        <p><%= error %></p>
+    <% } %>
     <div class="container">
         <h1>Register</h1>
+        <form action="/register" method="post">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="input-container">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+            </div>
+            <button>Submit</button>
+        </form>    
     </div>
 </body>
 </html>

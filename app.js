@@ -6,9 +6,12 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalStrategy = require("passport-local").Strategy;
 const connectMongo = require('connect-mongo');
+const expressError = require('./utils/expressError');
+const flash = require('connect-flash');
 const User = require('./models/user');
 const app = express();
 const DatabaseConnection = require('./config/db_connection');
+
 
 // ********* session **************
 const store = connectMongo.create({
@@ -32,6 +35,17 @@ app.use(
   })
 );
 
+// ********* flash
+app.use(flash())
+
+// ********* globle middleware ****
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+})
+
 
 // ********* passport *************
 app.use(passport.initialize());
@@ -53,15 +67,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(MethodOverride('_method'));
 DatabaseConnection();
 
-
 // ******** Set Routes *******
 app.use('/', registerRoute);
 
-
 // *************
-app.get('/', (req, res) => {
-    res.send('Hello!!!')
+app.get('/test', (req, res) => {
+  res.render('pages/homePage');
 });
+
+
+app.all(/(.*)/, (req, res, next) => {
+    next(new expressError("page not found!", 404));
+});
+
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "something went wrong" } = err;
+    res.status(statusCode).send(message);
+})
 
 app.listen(3000, () => {
     console.log('service from port 3000');
