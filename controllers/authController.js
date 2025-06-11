@@ -1,5 +1,6 @@
 const User = require('../models/user');
 
+
 module.exports.registerForm = (req, res) => {
     res.render('pages/registerPage');
 }
@@ -24,4 +25,13 @@ module.exports.createNewUser = async (req, res, next) => {
         req.flash("error", e.message);
         res.redirect("/register");
     }
+}
+
+module.exports.loginForm = (req, res) => {
+    res.render('pages/loginPage');
+}
+
+module.exports.loginUser = (req, res) => {
+    req.flash('success', 'Welcome Back!');
+    res.redirect('/test');
 }

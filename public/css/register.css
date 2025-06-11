@@ -1,5 +1,5 @@
 body {
-    font-family: "Roboto Mono", monospace;
+    font-family: 'Inter', sans-serif;
     height: 100vh;
     width: 100%;
     padding: 0;
@@ -7,25 +7,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(233, 233, 233);
+    background: radial-gradient(circle at top right, #f7f7f5, 	#fdfdfb);
 }
 
 .container {
-    width: 35%;
+    width: 25%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: 	#ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    /* gap: 1.5rem; */
 }
 
 .container h1 {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 1rem;
+    color: 	#1e293b;
 }
 
 .input-container {
@@ -42,10 +42,12 @@ body {
 
 .input-container input {
     padding: 12px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid 	#e2e8f0;
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    /* background-color: #94a3b8; */
+    color: #94a3b8; 
 }
 
 .input-container input:focus {
@@ -58,7 +60,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #3f51b5;
+    background: linear-gradient(to right,#3b82f6,#67e8f9);
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -69,4 +71,14 @@ button {
 
 button:hover {
     background-color: #303f9f;
+}
+
+p{
+    text-align: center;
+    color: #94a3b8;
+}
+
+a{
+    color: 	#0ea5e9;
+    text-decoration: none;
 }

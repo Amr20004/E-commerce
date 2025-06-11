@@ -13,6 +13,10 @@ const app = express();
 const DatabaseConnection = require('./config/db_connection');
 
 
+// ********* import routes ********
+const authRoute = require('./routes/authRoute');
+
+
 // ********* session **************
 const store = connectMongo.create({
   mongoUrl: "mongodb://127.0.0.1:27017/e-commerce",
@@ -55,10 +59,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-// ********* import routes ********
-const registerRoute = require('./routes/registerRoute');
-
-
 // *************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'views'));
@@ -68,7 +68,7 @@ app.use(MethodOverride('_method'));
 DatabaseConnection();
 
 // ******** Set Routes *******
-app.use('/', registerRoute);
+app.use("/", authRoute);
 
 // *************
 app.get('/test', (req, res) => {
