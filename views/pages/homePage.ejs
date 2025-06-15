@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Home</title>
 </head>
 <body>
     <% if(success && success.length){ %>
         <p><%= success %></p>
     <% } %>
-    <h1>Home</h1>
+
+    <nav class="nav-bar">
+        <h2 class="logo">Shop</h2>
+        <ul class="tabs">
+            <li class="tab"><a href="">Home</a></li>
+            <li class="tab"><a href="">Products</a></li>
+            <li class="tab"><a href="">Orders</a></li>
+            <li class="tab"><a href="">About Me</a></li>
+        </ul>
+        <% if(currentUser){ %>
+            <a class="logout-btn" href="">Log out</a>
+        <% }else{ %>    
+            <a class="login-btn" href="">Log in</a>
+        <% } %>
+        
+    </nav>
+    <section class="hero-section"></section>
+    <section class="feature-products"></section>
 </body>
 </html>

@@ -10,7 +10,7 @@ module.exports.createNewUser = async (req, res, next) => {
         const { username, email, password, confirmPassword } = req.body;
         if (password !== confirmPassword) {
             req.flash('error', 'password wrong!!');
-            res.redirect('/register');
+            return res.redirect('/register');
         }
         let newUser = new User({ username, email });
         let registeredUser = await User.register(newUser, password);
@@ -19,7 +19,7 @@ module.exports.createNewUser = async (req, res, next) => {
                 return next(error);
             }
             req.flash("success", `welcome ${username} to e-commerce app`);
-            res.redirect('/test');
+            res.redirect('/');
         })
     } catch (e) {
         req.flash("error", e.message);
@@ -33,5 +33,13 @@ module.exports.loginForm = (req, res) => {
 
 module.exports.loginUser = (req, res) => {
     req.flash('success', 'Welcome Back!');
-    res.redirect('/test');
+    res.redirect('/');
+}
+
+module.exports.logout = (req, res, next) => {
+    req.logout(err => {
+        if (err) return next(err);
+        req.flash('success', "you successfully loged out!");
+        res.redirect('/login')
+    })
 }

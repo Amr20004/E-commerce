@@ -10,13 +10,19 @@
     <title>login</title>
 </head>
 <body>
+    <% if(error && error.length){ %>
+        <p><%= error %></p>
+    <% } %>
+    <% if(success && success.length){ %>
+        <p><%= success %></p>
+    <% } %>
     <div class="container">
         <img src="/img/Woman with Crossed Arms and Smile.png" alt="">
         <h1>Welcome Back</h1>
         <form action="/login" method="post">
             <div class="input-container">
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="Email Address">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username">
             </div>
             <div class="input-container">
                 <label for="password">Password</label>

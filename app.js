@@ -15,6 +15,7 @@ const DatabaseConnection = require('./config/db_connection');
 
 // ********* import routes ********
 const authRoute = require('./routes/authRoute');
+const homeRoute = require('./routes/homeRoute')
 
 
 // ********* session **************
@@ -68,7 +69,9 @@ app.use(MethodOverride('_method'));
 DatabaseConnection();
 
 // ******** Set Routes *******
+app.use("/", homeRoute);
 app.use("/", authRoute);
+
 
 // *************
 app.get('/test', (req, res) => {
