@@ -40,6 +40,13 @@ app.use(
   })
 );
 
+// ********* passport *************
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new passportLocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // ********* flash
 app.use(flash())
 
@@ -50,15 +57,6 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");
     next();
 })
-
-
-// ********* passport *************
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new passportLocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 
 // *************
 app.set('view engine', 'ejs');

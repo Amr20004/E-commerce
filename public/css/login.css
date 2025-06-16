@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at top right, #ffffff,#fceede);
+    background: radial-gradient(circle at top right, #fefefe,#f8f8f6);
 }
 
 .container{

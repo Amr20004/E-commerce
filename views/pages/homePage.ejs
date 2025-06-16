@@ -22,14 +22,20 @@
             <li class="tab"><a href="">Orders</a></li>
             <li class="tab"><a href="">About Me</a></li>
         </ul>
-        <% if(currentUser){ %>
-            <a class="logout-btn" href="">Log out</a>
+        <% if(!currentUser){ %>
+            <a href="/login" class="login-btn">Log in</a>
         <% }else{ %>    
-            <a class="login-btn" href="">Log in</a>
+            <a href="/logout" class="logout-btn">Log out</a>
         <% } %>
-        
     </nav>
-    <section class="hero-section"></section>
+    <section class="hero-section">
+        <div class="content">
+            <h1 class="hero-title">Latest and Greatest</h1>
+            <p class="hero-description">Check out our latest arrivals in our newest collection of products</p>
+            <a href="" class="hero-btn">Shop Now</a>
+        </div>
+        <img src="/img/women.png" alt="" class="hero-poster">
+    </section>
     <section class="feature-products"></section>
 </body>
 </html>

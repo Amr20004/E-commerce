@@ -34,6 +34,7 @@ module.exports.loginForm = (req, res) => {
 module.exports.loginUser = (req, res) => {
     req.flash('success', 'Welcome Back!');
     res.redirect('/');
+    console.log(req.user);
 }
 
 module.exports.logout = (req, res, next) => {
