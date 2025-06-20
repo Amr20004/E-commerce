@@ -15,7 +15,8 @@ const DatabaseConnection = require('./config/db_connection');
 
 // ********* import routes ********
 const authRoute = require('./routes/authRoute');
-const homeRoute = require('./routes/homeRoute')
+const homeRoute = require('./routes/homeRoute');
+const productRoute = require('./routes/productRoute');
 
 
 // ********* session **************
@@ -69,6 +70,7 @@ DatabaseConnection();
 // ******** Set Routes *******
 app.use("/", homeRoute);
 app.use("/", authRoute);
+app.use("/product", productRoute);
 
 
 // *************
