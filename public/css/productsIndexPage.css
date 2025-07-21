@@ -1,0 +1,119 @@
+body,html{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 150px;
+    height: 50px;
+}
+
+.nav-bar .logo{
+    font-size: 26px;
+    color: 	#1e293b;
+}
+
+.nav-bar .tabs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 90px;
+}
+
+.nav-bar .tabs .tab{
+    list-style: none;
+    padding-right: 35px;
+    font-size: 15px;
+}
+
+.nav-bar .tabs .tab a{
+    color: 	#1e293b;
+}
+
+.nav-bar .login-btn{
+    margin-left: auto;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background-color: 	#1e3a8a;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.nav-bar .logout-btn{
+    margin-left: auto;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background-color: 	#1e3a8a;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* ************* */
+
+.products-section{
+    padding: 4rem;
+}
+
+.products-section .heading{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.products-section .products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.products-section .products .product{
+    width: 180px;
+    height: 220px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 0 4px rgb(0, 0, 0, 0.4);
+    border-radius: 12px;
+    position: relative;
+}
+
+.products-section .products .product .product-image{
+    object-fit: cover;
+    width: 150px;
+}
+
+.products-section .products .product .product-name{
+    margin-top: 0;
+}
+
+.products-section .products .product .product-page{
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 20px;
+    padding: 4px 6px;
+    background-color: #174bd9;
+    border-radius: 50%;
+    color: white;
+}
+
+.products-section .products .product .product-price{
+    position: absolute;
+    right: 5px;
+    bottom: 0px;
+}

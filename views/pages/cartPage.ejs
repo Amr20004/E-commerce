@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>Cart</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h2 class="logo">Shop</h2>
+        <ul class="tabs">
+            <li class="tab"><a href="/">Home</a></li>
+            <li class="tab"><a href="/product">Products</a></li>
+            <li class="tab"><a href="">Orders</a></li>
+            <li class="tab"><a href="">About Me</a></li>
+        </ul>
+        <% if(!currentUser){ %>
+            <a href="/login" class="login-btn">Log in</a>
+        <% }else{ %>    
+            <a href="/logout" class="logout-btn">Log out</a>
+        <% } %>
+    </nav>
+
+    <% if(!cart){ %>
+        <h1>No Products Found.</h1>
+    <% }else{ %>
+        <% for(let i=0; i<cart.products.length; i++){ %>
+            <h1><%= cart.products[i].product.name %></h1>
+            <h3><%= cart.products[i].product.price %></h3>   
+            <h5>quantity: <%= cart.products[i].quantity %></h5> 
+        <% } %>
+    <% } %>
+</body>
+</html>

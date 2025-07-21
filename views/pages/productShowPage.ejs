@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/productsIndexPage.css">
-    <title>Products</title>
+    <link rel="stylesheet" href="/css/productShowPage.css">
+    <title></title>
 </head>
 <body>
     <nav class="nav-bar">
@@ -26,22 +26,21 @@
         <% } %>
     </nav>
 
-    <section class="products-section">
-        <h1 class="heading">Browse all Products</h1>
-        <div class="products">
-            <% for(let i=0 ; i < products.length ; i++){ %>
-            <div class="product">
-                <img src=<%= products[i].image %> alt="" class="product-image">
-                <h3 class="product-name"><%= products[i].name %></h3>
-                <a href="/product/<%= products[i]._id %>" class="product-page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
-                </a>
-                <h4 class="product-price">$<%= products[i].price %></h4>
+    <div class="product">
+        <div class="product-details">
+            <h1 class="product-name"><%= product.name %></h1>
+            <p class="product-description"><%= product.description %></p>
+            <div class="product-checkout">
+                <h3 class="product-cost">Product Cost: $<%= product.price %></h3>
+                <p class="product-quantity">Only <%= product.quantity %> left in stoc</p>
             </div>
-            <% } %>
+            <form action="/cart/add/<%= product._id %>" method="post">
+                <button class="addToCart">Add To Cart</button>
+            </form>
         </div>
-    </section>
+        <div class="product-image">
+            <img src=<%= product.image %> alt="">
+        </div>
+    </div>
 </body>
 </html>

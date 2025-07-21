@@ -17,7 +17,7 @@ const DatabaseConnection = require('./config/db_connection');
 const authRoute = require('./routes/authRoute');
 const homeRoute = require('./routes/homeRoute');
 const productRoute = require('./routes/productRoute');
-
+const cartRoute = require('./routes/cartRoute')
 
 // ********* session **************
 const store = connectMongo.create({
@@ -71,6 +71,7 @@ DatabaseConnection();
 app.use("/", homeRoute);
 app.use("/", authRoute);
 app.use("/product", productRoute);
+app.use("/cart", cartRoute);
 
 
 // *************
